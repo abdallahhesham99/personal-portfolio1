@@ -9,7 +9,7 @@ navToggle.addEventListener("click", () => navMenu.classList.add("show-menu"));
 //===Hide Menu===
 navClose.addEventListener("click", () => navMenu.classList.remove("show-menu"));
 
-//================ Remove Menu Mobile When Click on Nav Links==================
+//================ Remove Menu Mobile When Click on Nav Links=================================
 const navLinks = document.querySelectorAll(".nav__link");
 
 function linkAction() {
@@ -17,7 +17,7 @@ function linkAction() {
 }
 navLinks.forEach((navLink) => navLink.addEventListener("click", linkAction));
 
-// ============================ ACCORDION SKILLS ================================
+// ============================ ACCORDION SKILLS =========================================
 const skillsContent = document.getElementsByClassName("skills__content"),
   skillsHeader = document.querySelectorAll(".skills__header");
 
@@ -33,7 +33,7 @@ for (let i = 0; i < skillsHeader.length; i++) {
     }
   });
 }
-// ========================QUALIFICATION==================================
+// ========================QUALIFICATION===============================================
 const qualificationButton = document.querySelectorAll(".qualification__button"),
   qualificationContent = document.querySelectorAll(".qualification__content");
 
@@ -52,4 +52,35 @@ qualificationButton.forEach((element, tabIndex) => {
     //make qualification content of tabINDEX display block
     qualificationContent[tabIndex].style.display = "block";
   });
+});
+// ======================== Services ===============================================
+const modals = document.querySelectorAll(".services__modal"),
+  openModalButton = document.querySelectorAll(".services__button"),
+  closeModalButton = document.querySelectorAll(".close-modal");
+
+//open modal function
+let openModal = (modalIndex) => {
+  modals[modalIndex].classList.add("active-modal");
+};
+
+//close modal function
+let closeModal = (modalIndex) => {
+  modals[modalIndex].classList.remove("active-modal");
+};
+
+//open modal apply event
+openModalButton.forEach((modalBtn, modalIndex) => {
+  modalBtn.addEventListener("click", () => openModal(modalIndex));
+});
+
+//close modal apply event
+closeModalButton.forEach((modalBtn, modalIndex) => {
+  modalBtn.addEventListener("click", () => closeModal(modalIndex));
+});
+
+//close modal through click on overlay
+window.addEventListener("click", (e) => {
+  if (e.target.className === "services__modal active-modal") {
+    e.target.classList.remove("active-modal");
+  }
 });
