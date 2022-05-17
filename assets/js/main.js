@@ -85,8 +85,7 @@ window.addEventListener("click", (e) => {
   }
 });
 // ======================== PORTFOLIO ===============================================
-
-let swiper = new Swiper(".portfolio__container", {
+let swiperPortfolio = new Swiper(".portfolio__container", {
   cssMode: true,
   loop: true,
   navigation: {
@@ -96,5 +95,21 @@ let swiper = new Swiper(".portfolio__container", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
+  },
+});
+// ======================== TESTIMONIALS ===============================================
+let swiperTestimonials = new Swiper(".testimonials__container", {
+  loop: true,
+  grapCursor: true,
+  spaceBetween: 48,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+  breakpoints: {
+    568: {
+      slidesPerView: 2,
+    },
   },
 });
