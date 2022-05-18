@@ -218,7 +218,10 @@ img {
 .show-menu {
   bottom: 0;
 }
-
+/* Active Link */
+.active-link {
+  color: var(--first-color);
+}
 /*====================HOME ====================*/
 .home__container {
   gap: 1rem;
