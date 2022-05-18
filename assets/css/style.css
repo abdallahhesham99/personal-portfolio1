@@ -222,6 +222,10 @@ img {
 .active-link {
   color: var(--first-color);
 }
+/*Change header style on scroll*/
+.scroll-header {
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+}
 /*====================HOME ====================*/
 .home__container {
   gap: 1rem;

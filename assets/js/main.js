@@ -117,11 +117,15 @@ let swiperTestimonials = new Swiper(".testimonials__container", {
 const sections = document.querySelectorAll("section[id]");
 
 function scrollActive() {
+  //get scroll postion
   const scrollY = window.scrollY;
 
   sections.forEach((section) => {
+    //get section height
     const sectionHeight = section.offsetHeight;
+    //get section top
     const sectionTop = section.offsetTop - 50;
+    //get section id
     let sectionId = section.getAttribute("id");
 
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
@@ -137,3 +141,14 @@ function scrollActive() {
 }
 
 window.addEventListener("scroll", scrollActive);
+// ==============================Change header style on scroll===================================
+function scrollHeader() {
+  const navBar = document.getElementById("header");
+  //if the scroll greater than 80 vh segt scroll-header class
+  if (this.scrollY >= 80) {
+    navBar.classList.add("scroll-header");
+  } else {
+    navBar.classList.remove("scroll-header");
+  }
+}
+window.addEventListener("scroll", scrollHeader);
