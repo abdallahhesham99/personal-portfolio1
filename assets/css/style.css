@@ -806,3 +806,37 @@ img {
 .footer__social {
   color: #fff;
 }
+/* ================= SCROLL UP ============================= */
+.scrollup {
+  position: fixed;
+  right: 1rem;
+  bottom: -20%;
+  font-size: 1.5rem;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: 0.3rem;
+  border-radius: 0.4rem;
+  opacity: 0.8;
+  z-index: var(--z-tooltip);
+  transition: 0.3s;
+}
+
+.scrollup:hover {
+  background-color: var(--first-color-alt);
+}
+/* Show scroll */
+.show-scroll {
+  bottom: 5rem;
+}
+.changeScroll-bg {
+  background-color: var(--first-color-lighter);
+  color: black;
+}
+/*========== SCROLL BAR ==========*/
+
+/*==================== MEDIA QUERIES ====================*/
+/* For small devices */
+
+/* For medium devices */
+
+/* For large devices */

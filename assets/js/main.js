@@ -115,7 +115,6 @@ let swiperTestimonials = new Swiper(".testimonials__container", {
 });
 // ========================= SCROLL SECTION ACTIVE LINK ===========================
 const sections = document.querySelectorAll("section[id]");
-
 function scrollActive() {
   //get scroll postion
   const scrollY = window.scrollY;
@@ -152,3 +151,36 @@ function scrollHeader() {
   }
 }
 window.addEventListener("scroll", scrollHeader);
+
+/*==================== SHOW SCROLL UP ====================*/
+const scrollUpButton = document.getElementById("scroll-up");
+
+function scrollUp() {
+  if (this.scrollY >= 560) {
+    scrollUpButton.classList.add("show-scroll");
+  } else {
+    scrollUpButton.classList.remove("show-scroll");
+  }
+}
+/* When scrolling reach on footer scrollUp button change color*/
+const footerSection = document.getElementById("footer");
+
+const options = {
+  rootMargin: "-12%",
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      scrollUpButton.classList.add("changeScroll-bg");
+    } else {
+      scrollUpButton.classList.remove("changeScroll-bg");
+    }
+  });
+}, options);
+
+observer.observe(footerSection);
+
+window.addEventListener("scroll", scrollUp);
+
+/*==================== DARK LIGHT THEME ====================*/
