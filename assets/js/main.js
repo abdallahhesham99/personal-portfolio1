@@ -152,7 +152,7 @@ function scrollHeader() {
 }
 window.addEventListener("scroll", scrollHeader);
 
-/*==================== SHOW SCROLL UP ====================*/
+/*==================================== SHOW SCROLL UP =============================================*/
 const scrollUpButton = document.getElementById("scroll-up");
 
 function scrollUp() {
@@ -162,7 +162,7 @@ function scrollUp() {
     scrollUpButton.classList.remove("show-scroll");
   }
 }
-/* When scrolling reach on footer scrollUp button change color*/
+/* When scrolling reach on footer====> Change color of scrollUp button*/
 const footerSection = document.getElementById("footer");
 
 const options = {
@@ -182,5 +182,52 @@ const observer = new IntersectionObserver((entries) => {
 observer.observe(footerSection);
 
 window.addEventListener("scroll", scrollUp);
+/* When scrolling reach on footer scrollUp button change color*/
 
-/*==================== DARK LIGHT THEME ====================*/
+/*================================ DARK/LIGHT THEME ===========================*/
+const themeButton = document.getElementById("themeButton");
+const darkTheme = "dark-theme";
+let storageValue = localStorage.getItem("theme_state");
+
+//if localstorage is empty setItem theme_state with value disabled_state
+if (storageValue === null) {
+  localStorage.setItem("theme_state", "disabled_state");
+}
+//else if value of localeStorage is enabled_state enable the darkMode
+else if (storageValue === "enabled_state") {
+  darkMode();
+}
+
+themeButton.addEventListener("click", () => {
+  //catch value of localStorage
+  storageValue = localStorage.getItem("theme_state");
+  //if when click value of localstorage is disbaled_state enable the darkmode
+  if (storageValue === "disabled_state") {
+    darkMode();
+  } else {
+    lightMode();
+  }
+});
+
+//Dark mode function
+function darkMode() {
+  //set in localStorage value --> enabled_state
+  localStorage.setItem("theme_state", "enabled_state");
+
+  //add dark-theme class on body
+  document.body.classList.add("dark-theme");
+
+  //add sun icon
+  themeButton.classList.add("uil-sun");
+}
+
+function lightMode() {
+  //set in localStorage value --> disabledstate
+  localStorage.setItem("theme_state", "disabled_state");
+
+  //remove dark-theme class on body
+  document.body.classList.remove("dark-theme");
+
+  //add moon icon
+  themeButton.classList.add("uil-moon");
+}
