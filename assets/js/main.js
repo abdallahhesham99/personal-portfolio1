@@ -217,6 +217,9 @@ function darkMode() {
   //add dark-theme class on body
   document.body.classList.add("dark-theme");
 
+  //remove moon icon
+  themeButton.classList.remove("uil-moon");
+
   //add sun icon
   themeButton.classList.add("uil-sun");
 }
@@ -227,6 +230,9 @@ function lightMode() {
 
   //remove dark-theme class on body
   document.body.classList.remove("dark-theme");
+
+  //remove sun icon
+  themeButton.classList.remove("uil-sun");
 
   //add moon icon
   themeButton.classList.add("uil-moon");
