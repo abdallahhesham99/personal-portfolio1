@@ -237,3 +237,4 @@ function lightMode() {
   //add moon icon
   themeButton.classList.add("uil-moon");
 }
+// ========================== SCROLL BAR ==============================
